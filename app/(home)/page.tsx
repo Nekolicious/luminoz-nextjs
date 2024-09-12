@@ -12,7 +12,6 @@ export default function Home() {
           width={200}
           height={200}
           alt="luminoz logo"
-          className="object-contain"
         />
       </div>
 
