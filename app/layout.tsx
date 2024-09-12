@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Luminoz",
-  description: "Site",
+  title: "LUMiNOZ",
+  description: "Welcome to LUMiNOZ PortFolio",
 };
 
 export default function RootLayout({
