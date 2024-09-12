@@ -21,7 +21,7 @@ export function Sidebar() {
         <div className="fixed md:static flex h-screen w-screen max-w-80">
             <nav className={`${isCollapse ? 'w-0 md:w-full' : 'w-full'} transition-all duration-700 ease-in-out flex flex-col max-w-sm place-content-center bg-neutral-800 text-2xl gap-8 overflow-hidden`}>
                 <div className={`${isCollapse ? 'opacity-0 md:opacity-100' : 'opacity-100 delay-200'} transition-color duration-300 h-full flex flex-col justify-between py-16`}>
-                    <h1 className="text-4xl text-center">LUMINOZ</h1>
+                    <h1 className="text-4xl text-center">LUMiNOZ</h1>
                     <div className="flex flex-col my-8 gap-4">
                         {/* LINKS */}
                         <IconContext.Provider value={{ className: 'p-2', size: '40' }}>

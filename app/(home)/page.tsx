@@ -10,6 +10,7 @@ export default function Home() {
           src={'/img/luminoz.png'}
           fill
           alt="luminoz logo"
+          className="object-contain"
         />
       </div>
 
