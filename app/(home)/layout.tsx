@@ -1,4 +1,4 @@
-import { Sidebar } from "@/components/navbar"
+import { Sidebar } from "@/components/ui/navbar"
 import { ReactNode } from "react"
 
 export default function Layout({ children }: Readonly<{ children: ReactNode }>) {
