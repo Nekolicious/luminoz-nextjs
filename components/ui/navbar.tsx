@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 export function Sidebar() {
     const isActive = usePathname();
     const [isCollapse, setCollapse] = useState(true);
-    const linkClass = 'flex flex-row items-center px-2';
+    const linkClass = 'flex flex-row items-center font-bold py-4';
     const animClass = 'hover:text-orange-600 hover:translate-x-2 transition-all duration-300';
     const activeClass = 'text-orange-600 translate-x-2'
 
@@ -18,11 +18,11 @@ export function Sidebar() {
     }
 
     return (
-        <div className="fixed md:static flex h-screen w-screen max-w-80">
-            <nav className={`${isCollapse ? 'w-0 md:w-full' : 'w-full'} transition-all duration-700 ease-in-out flex flex-col max-w-sm place-content-center bg-neutral-800 text-2xl gap-8 overflow-hidden`}>
-                <div className={`${isCollapse ? 'opacity-0 md:opacity-100' : 'opacity-100 delay-200'} transition-color duration-300 h-full flex flex-col justify-between py-16`}>
-                    <h1 className="text-4xl text-center">LUMINOZ</h1>
-                    <div className="flex flex-col my-8 gap-4">
+        <div className="fixed md:static flex h-screen w-screen max-w-80 drop-shadow">
+            <nav className={`${isCollapse ? 'w-0 md:w-full md:border-r-8 md:border-orange-600' : 'w-full border-r-8 border-orange-600'} transition-all duration-700 ease-in-out flex flex-col max-w-sm place-content-center bg-neutral-100 dark:bg-neutral-800 text-2xl gap-8 overflow-hidden`}>
+                <div className={`${isCollapse ? 'opacity-0 md:opacity-100' : 'opacity-100 delay-300'} transition-color duration-300 h-full flex flex-col justify-between py-16`}>
+                    <h1 className="text-4xl text-center tracking-wide font-bold">LUMiNOZ</h1>
+                    <div className="flex flex-col my-8 px-8 divide-y divide-neutral-600">
                         {/* LINKS */}
                         <IconContext.Provider value={{ className: 'p-2', size: '40' }}>
                             <Link onClick={ToggleNavbar} className={`${linkClass} ${animClass} ${isActive === '/' ? activeClass : ''}`} href={'/'}>
@@ -43,7 +43,9 @@ export function Sidebar() {
                             </Link>
                         </IconContext.Provider>
                     </div>
-                    <h1 className="text-sm text-center">Credit Here</h1>
+                    <p className="text-sm text-center text-neutral-400 dark:text-neutral-600">
+                        &#169; 2024 <Link className="hover:underline" href={'https://nekocia.my.id/'}>Nekocia</Link> for LUMiNOZ
+                    </p>
                 </div>
             </nav>
 
