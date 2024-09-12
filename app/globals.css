@@ -24,4 +24,21 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .border-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 8px solid #ffffff;
+  }
+
+  .btop a::before{
+    border-top: 4px solid #805943;
+    border-left: 4px solid #eb671a;
+}    
+  .bbottom a::after{
+    border-right: 4px solid #eb671a;
+    border-bottom: 4px solid #eb671a;
+} 
 }

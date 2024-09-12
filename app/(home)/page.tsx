@@ -7,7 +7,7 @@ export default function Home() {
       {/* IMAGE */}
       <div className="py-4">
         <Image
-          className="mx-auto"
+          className="mx-auto border-circle"
           src={'/img/luminoz.png'}
           width={200}
           height={200}
@@ -16,10 +16,10 @@ export default function Home() {
       </div>
 
       {/* TEXT */}
-      <div className="flex flex-col gap-4 py-8">
+      <div className="flex flex-col gap-4 py-8 btop bbottom">
         <h1 className="text-4xl font-bold tracking-wide">
           LUMiNOZ
-        </h1>
+        </h1> 
         <p className="px-2 font-mono">
           LUMiNOZ is an Indonesian Doujin Circle that releases wide range various genre and focus on rhythm game.
         </p>

@@ -8,7 +8,7 @@ export default function Page() {
                 <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4 ">
                     <div className="relative h-24 w-24 mx-auto my-4">
                         <Image
-                            src={'/img/luminoz.png'}
+                            src={'/artist/xeondiversity.png'}
                             fill
                             alt="Xeon Diversity"
                             className="rounded-full"
