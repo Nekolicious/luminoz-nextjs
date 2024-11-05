@@ -1,281 +1,91 @@
-import Image from "next/image";
+'use client';
+
+import { useState } from "react";
+import { artistData } from "@/app/_lib/data";
+import ArtistFrame from "@/components/layout/artistframe";
+import { FaSortAlphaDown, FaSortAlphaUp } from "react-icons/fa";
 
 export default function Page() {
+    const [selectedRole, setSelectedRole] = useState("All");
+    const [sortBy, setSortBy] = useState("name");
+    const [sortOrder, setSortOrder] = useState("asc");
+
+    const roles = ["All", ...Array.from(new Set(artistData.map((artist) => artist.role)))];
+
+    const filteredArtists = selectedRole === "All"
+        ? artistData
+        : artistData.filter((artist) => artist.role === selectedRole);
+
+    const sortedArtists = [...filteredArtists].sort((a, b) => {
+        const comparison = sortBy === "name"
+            ? a.name.localeCompare(b.name)
+            : a.role.localeCompare(b.role);
+
+        return sortOrder === "asc" ? comparison : -comparison;
+    });
+
+    const toggleSortOrder = () => {
+        setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
+    };
+
     return (
         <div className="min-h-full w-full p-8 overflow-auto">
             <h2 className="text-4xl font-bold my-8">Our Members</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center text-center gap-6" >
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4 ">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/artist/xeondiversity.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            Xeon Diversity
-                        </p>
-                        <p>
-                            Genre : Future Bass
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/artist/gogon.png'}
-                            fill
-                            alt="GoGoN-"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            GoGoN-
-                        </p>
-                        <p>
-                        suka dangdut tapi gak pernah bikin dangdut :"
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/artist/dispel.png'}
-                            fill
-                            alt="Dispel"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            Dispel
-                        </p>
-                        <p>
-                        Fuses live instruments such as orchestras and folk as one song.
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/img/luminoz.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            RESiTY
-                        </p>
-                        <p>
-                            Genre : Future Bass
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/img/luminoz.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            Rakakun-
-                        </p>
-                        <p>
-                            Genre : Future Bass
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/img/luminoz.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            SM-MEGAtive
-                        </p>
-                        <p>
-                            Genre : Future Bass
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/img/luminoz.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                           Altair Aquila
-                        </p>
-                        <p>
-                           Vocalist & VTuber
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/img/luminoz.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            sarochi
-                        </p>
-                        <p>
-                            Genre : Future Bass
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/img/luminoz.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            Scarlet
-                        </p>
-                        <p>
-                            Genre : Future Bass
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/img/luminoz.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            Mariela Riona
-                        </p>
-                        <p>
-                            Vocalist & VTuber
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/img/luminoz.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            Evara Lyrissha
-                        </p>
-                        <p>
-                            Vocalist & VTuber
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/img/luminoz.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            Saryulis
-                        </p>
-                        <p>
-                            Genre : Future Bass
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/artist/kuroryu.png'}
-                            fill
-                            alt="Kuroryu"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            KURORYU
-                        </p>
-                        <p className="text-center">
-                        a weeb who like making music, just a simple guy make a simple track, focused on genre like Hardcore/Dubstep/Drum n Bass/etc.
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/img/luminoz.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            Xeon Diversity
-                        </p>
-                        <p>
-                            Genre : Future Bass
-                        </p>
-                    </div>
-                </div>
-                <div className="bg-neutral-100 dark:bg-neutral-800 rounded border border-neutral-200 dark:border-neutral-700 p-4">
-                    <div className="relative h-24 w-24 mx-auto my-4">
-                        <Image
-                            src={'/img/luminoz.png'}
-                            fill
-                            alt="Xeon Diversity"
-                            className="rounded-full"
-                        />
-                    </div>
-                    <div className="my-4">
-                        <p className="font-bold">
-                            Xeon Diversity
-                        </p>
-                        <p>
-                            Genre : Future Bass
-                        </p>
-                    </div>
+
+
+            <div className="mb-4 flex flex-col md:flex-row gap-2">
+                {/* Filter */}
+                <div className="flex items-center">
+                    <label htmlFor="roleFilter" className="mr-2">Filter: </label>
+                    <select
+                        id="roleFilter"
+                        value={selectedRole}
+                        onChange={(e) => setSelectedRole(e.target.value)}
+                        className="px-2 py-1 border border-gray-300 rounded text-orange-600"
+                    >
+                        {roles.map((role) => (
+                            <option key={role} value={role}>
+                                {role}
+                            </option>
+                        ))}
+                    </select>
                 </div>
 
+                {/* Sort */}
+                <div className="flex items-center">
+                    <label htmlFor="sortBy" className="mr-2">Sort by:</label>
+                    <select
+                        id="sortBy"
+                        value={sortBy}
+                        onChange={(e) => setSortBy(e.target.value)}
+                        className="px-2 py-1 border border-gray-300 rounded text-orange-600"
+                    >
+                        <option value="name">Name</option>
+                        <option value="role">Role</option>
+                    </select>
+
+                    <button onClick={toggleSortOrder} className="ml-4 p-2">
+                        {sortOrder === "asc" ? (
+                            <FaSortAlphaDown className="text-xl" aria-label="Ascending Order" />
+                        ) : (
+                            <FaSortAlphaUp className="text-xl" aria-label="Descending Order" />
+                        )}
+                    </button>
+                </div>
+
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center text-center gap-6">
+                {sortedArtists.map((artist) => (
+                    <ArtistFrame
+                        key={artist.id}
+                        id={artist.id.toString()}
+                        name={artist.name}
+                        role={artist.role}
+                        about={artist.about}
+                        imgSrc={artist.imgSrc}
+                    />
+                ))}
             </div>
         </div>
     );

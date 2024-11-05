@@ -18,7 +18,7 @@ export function Sidebar() {
     }
 
     return (
-        <div className="fixed md:static flex h-screen w-screen max-w-80 drop-shadow">
+        <div className={`fixed md:static flex h-screen ${isCollapse ? '' : 'w-screen max-w-80'} drop-shadow z-10`}>
             <nav className={`${isCollapse ? 'w-0 md:w-full md:border-r-8 md:border-orange-600' : 'w-full border-r-8 border-orange-600'} transition-all duration-700 ease-in-out flex flex-col max-w-sm place-content-center bg-neutral-100 dark:bg-neutral-800 text-2xl gap-8 overflow-hidden`}>
                 <div className={`${isCollapse ? 'opacity-0 md:opacity-100' : 'opacity-100 delay-300'} transition-color duration-300 h-full flex flex-col justify-between py-16`}>
                     <h1 className="text-4xl text-center tracking-wide font-bold">LUMiNOZ</h1>
@@ -44,7 +44,7 @@ export function Sidebar() {
                         </IconContext.Provider>
                     </div>
                     <p className="text-sm text-center text-neutral-400 dark:text-neutral-600">
-                        &#169; 2024 <Link className="hover:underline" href={'https://nekocia.my.id/'}>Nekocia</Link> for LUMiNOZ
+                        &#169; 2024 <Link className="hover:underline" href={'https://nekocia.my.id/'} target="_blank">Nekocia</Link> for LUMiNOZ
                     </p>
                 </div>
             </nav>
