@@ -91,3 +91,31 @@ export const artistData = [
         imgSrc: '/artist/kuroryu.png',
     },
 ];
+
+export const albumData = [
+    {
+        id: 1,
+        name: 'Genesis',
+        ytLink: 'https://youtube.com/playlist?list=PLg0Y94-2Ml5i9tW1YKNx83ln9VaOHHDxQ&si=N1HjMTQrovYce3p_',
+    },
+    {
+        id: 2,
+        name: 'Restoration',
+        ytLink: 'https://youtube.com/playlist?list=PLg0Y94-2Ml5jr0JtDmcDGxEfTTQ1bb02n&si=OkaygG_Y6WwFZud1',
+    },
+    {
+        id: 3,
+        name: 'Cursed of The Origin',
+        ytLink: 'https://youtube.com/playlist?list=PLg0Y94-2Ml5gffQAuWt4LgHjw2uuLCPuw&si=g9dMu7Ffl3JogDvp',
+    },
+    {
+        id: 4,
+        name: 'Collaboration Works',
+        ytLink: 'https://youtube.com/playlist?list=PLg0Y94-2Ml5j5q6UpgSUkE5X4FN-oNYSA&si=X2HWk-XHBjQTZA6G',
+    },
+    {
+        id: 5,
+        name: 'Release',
+        ytLink: 'https://youtube.com/playlist?list=PLg0Y94-2Ml5gedj8GldFXM67kI3nAqcWj&si=xnc7BIceLHGPgA0l',
+    },
+]
