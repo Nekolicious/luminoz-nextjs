@@ -10,7 +10,7 @@ export function Sidebar() {
     const isActive = usePathname();
     const [isCollapse, setCollapse] = useState(true);
     const linkClass = 'flex flex-row items-center font-bold py-4';
-    const animClass = 'hover:text-orange-600 hover:translate-x-2 transition-all duration-300';
+    const animClass = 'hover:translate-x-2 transition-all duration-300';
     const activeClass = 'text-orange-600 translate-x-2'
 
     const ToggleNavbar = () => {
